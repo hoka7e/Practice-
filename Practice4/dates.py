@@ -1,14 +1,40 @@
-import datetime
+#1 
+from datetime import datetime, timedelta
 
-x = datetime.datetime.now()
-print(x)
+now = datetime.now()
+new_date = now - timedelta(days = 5)
 
-x = datetime.datetime.now()
-print(x.year)
-print(x.strftime("%A"))
+print("Current date:", now)
+print("5 days ago:", new_date)
 
-x = datetime.datetime(2020, 5, 17)
-print(x)
+#2 
+from datetime import datetime, timedelta
 
-x = datetime.datetime(2018, 6, 1)
-print(x.strftime("%B"))
+now = datetime.now()
+
+tomorrow = now + timedelta(days= 1)
+yesterday = now - timedelta(days= 1)
+
+print("Yesterdar:", yesterday)
+print("Today:", now)
+print("Tomorrow:", tomorrow)
+
+#3 
+from datetime import datetime, timedelta
+
+now = datetime.now()
+no_microseconds = now.replace(microsecond=0)
+
+print("With microseconds:", now)
+print("Without microseconds:", no_microseconds)
+
+#4
+from datetime import datetime
+
+date1 = datetime(2026, 2, 10, 12, 0, 0)
+date2 = datetime(2026, 2, 19, 12, 0, 0)
+
+difference = date2 - date1
+
+print("Difference:", difference)
+print("Difference in seconds:", difference.total_seconds())
