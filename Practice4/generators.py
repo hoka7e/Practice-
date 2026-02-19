@@ -1,48 +1,47 @@
-def my_generator():
-  yield 1
-  yield 2
-  yield 3
+#1 
+def square_numbers(N): 
+    for i in range(1, N + 1): 
+        yield i * i
 
-for value in my_generator():
-  print(value)
+N = int(input())
+for value in square_numbers(N): 
+    print(value)
 
+#2 
+def even_numbers(N): 
+    for i in range(N+1): 
+        if i % 2 == 0: 
+            yield i
 
-def count_up_to(n):
-  count = 1
-  while count <= n:
-    yield count
-    count += 1
+N = int(input())
+print(", ".join(str(x) for x in even_numbers(N)))
 
-for num in count_up_to(5):
-  print(num)
+#3 
+def div_by_3_4(N): 
+    for i in range(N+1):
+        if i % 3 == 0 and i % 4 == 0: 
+            yield i
+            
+N = int(input())
+for value in div_by_3_4(N): 
+    print(value)
 
-def large_sequence(n):
-  for i in range(n):
-    yield i
+#4 
+def squares(a, b): 
+    for i in range(a, b+1): 
+        yield i * i
+        
+a, b = map(int, input().split())
+for value in squares(a, b):
+    print(value)
 
-# This doesn't create a million numbers in memory
-gen = large_sequence(1000000)
-print(next(gen))
-print(next(gen))
-print(next(gen))
-
-def simple_gen():
-  yield "Emil"
-  yield "Tobias"
-  yield "Linus"
-
-gen = simple_gen()
-print(next(gen))
-print(next(gen))
-print(next(gen))
-
-def fibonacci():
-  a, b = 0, 1
-  while True:
-    yield a
-    a, b = b, a + b
-
-# Get first 100 Fibonacci numbers
-gen = fibonacci()
-for _ in range(100):
-  print(next(gen))
+#5 
+def down(N): 
+    while N >= 0:
+        yield N
+        N = N - 1
+        
+        
+N = int(input())
+for value in down(N): 
+    print(value)
